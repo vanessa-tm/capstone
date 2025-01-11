@@ -1,0 +1,121 @@
+[
+   {
+    "aisleNumber": "Front Left of Store",
+    "items": [
+      ["Fresh Fruits", "Fresh Vegetables", "Mushrooms & Herbs", "Pressed Juice"],
+      ["Kombucha", "Packaged Salad", "Plant Based Foods"]
+    ]
+  },
+  {
+    "aisleNumber": "Left Back of Store",
+    "items": [
+      ["Meats", "Chicken", "Beef"],
+      ["Pork", "Seafood"]
+    ]
+  },
+  {
+    "aisleNumber": " Aisle 1",
+    "items": [
+      ["Water", "Water Enhancers", "Non-alcoholic", "Candy"],
+      ["Pop", "Beverages", "Sports Drinks", "Energy Drinks"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 2",
+    "items": [
+      ["Crackers", "Popcorn", "Nuts", "Juice"],
+      ["Chips", "Tortilla Chips", "Snacks", "Ice Cream Cones"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 3",
+    "items": [
+      ["Coffee", "Hot Chocolate", "Tea", "Canned Fruit"],
+      ["Cookies", "Snacking Bars", "Kids Juice", "Pudding Cups"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 4",
+    "items": [
+      ["Cereal", "Hot Cereal", "Pancakes", "Peanut Butter"],
+      ["Seasonal", "Baking", "Flour", "Baking Foil"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 5",
+    "items": [
+      ["Condiments", "Pickles & Olives", "Salad Dressing", "Oils & Vinegars"],
+      ["Mexican", "Side Dishes", "Canned Pasta", "Spices"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 6",
+    "items": [
+      ["Filipino", "Latin & Caribbean", "British", "Eastern European"],
+      ["Rice", "International", "East Asian", "South Asian"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 7",
+    "items": [
+      ["Pasta Sauce", "Canned Tomatoes", "Pasta", "Canned Meat & Fish"],
+      ["Soup", "Kitchen Gadgets", "Gravy", "Beans"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 8",
+    "items": [
+      ["Laundry", "Air Care", "Garbage Bags", "Dish Soap"],
+      ["Cleaners", "Candles", "Light Bulbs", "Charcoal"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 9",
+    "items": [
+      ["Organic Foods", "Organic Snacks", "Herbal Remedies", "Deodorant"],
+      ["Hair Care", "Personal Wash", "Oral Care", "Shave"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 10 - Organics",
+    "items": [
+      ["Pastas & Sauces", "Condiments & Spreads", "Soups"],
+      ["Baking", "Gluten Free", "Beverage Supplements"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 11",
+    "items": [
+      ["Non-Dairy", "Protein Bars", "Foot Care", "Vitamins"],
+      ["Organic Cereal", "Whole Food", "Natural Beauty", "Incontinence"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 12",
+    "items": [
+      ["Dog Food", "Cat Food", "Table Top", "Foils & Wraps"],
+      ["Bath Tissue", "Paper Towels", "Baby Food", "Greeting Cards"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 13",
+    "items": [
+      ["Eggs", "Margarine", "Yogourt", "Cheese"],
+      ["Frozen Foods", "Dinners & Entrees", "Personal Pizza", "Pizza"]
+    ]
+  },
+  {
+    "aisleNumber": "Aisle 14",
+    "items": [
+      ["Frozen Fruit", "Frozen Vegetables", "Frozen Fries", "Hashbrowns"],
+      ["Breakfast", "Dessert", "Ice Cream", "Novelties"]
+    ]
+  },
+   {
+    "aisleNumber": "Right of Store",
+    "items": [
+      ["Take-out Foods", "Bakery"],
+      ["Deli", "Speciality Cheese"]
+    ]
+  }
+]
