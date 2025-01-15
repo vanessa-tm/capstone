@@ -17,6 +17,7 @@
         height: 2rem;
         width: 15rem;
         border-radius: 15px;
+        font-size: large;
 
 
     }
@@ -42,5 +43,10 @@
         border-radius: 15px;
         margin: 2rem;
 
+    }
+
+
+    &__edit-container {
+        margin: 2rem 0;
     }
 }

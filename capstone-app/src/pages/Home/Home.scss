@@ -22,7 +22,14 @@
     &__button {
         border-radius: 25px;
         padding: 1rem;
-        border: none;
+        margin-left: 1rem;
+        color: #7e97d2;
+            
+        &:hover {
+            cursor: pointer;
+            background-color: #7e97d2;
+            color: white;
+        }
 
     }
 

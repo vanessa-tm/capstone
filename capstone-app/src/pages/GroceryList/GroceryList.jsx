@@ -6,6 +6,26 @@ import "./GroceryList.scss";
 
 function GroceryList() {
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [text, setText] = useState("New List");
+
+  // Handle when the edit button is clicked
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  // Handle when the save button is clicked
+  const handleSaveClick = () => {
+    setIsEditing(false);
+  };
+
+  // Handle when the user types into the input
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
+
+
 async function getAisleNumber(itemName) {
         try {
             const response = await axios.get("http://localhost:8080/items");
@@ -42,31 +62,52 @@ async function getAisleNumber(itemName) {
 
 
    
-
-
     return (
         <>
             <div className="grocery">
-                
-                <h1 className="grocery__title">New List 
-                  <img className="grocery__icon" src={icons} />  
-                </h1>
-            </div>
-
-            <form className="grocery__form" onSubmit={handleAddItem}>
-                <input className="grocery__input" type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}></input>
-                <button className="grocery__button" type="submit">Add</button>
-            </form>
-
-            <div className="grocery__list">
-                {items.map((item, index) => (
-                  <div key={index} className="grocery__list-item">
-                    <p>{item.name} : {item.aisle}</p>
+             <div className="grocery__edit">
+                    {isEditing ? (
+                        <div className="grocery__edit-container">
+                            <input
+                                type="text"
+                                value={text}
+                                onChange={handleChange}
+                                className="grocery__input"
+                                autoFocus
+                            />
+                            <button onClick={handleSaveClick} className="grocery__button">Save</button>
+                        </div>
+                    ) : (
+                            <div className="grocery__view-container">
+                                <h1 className="grocery__edit-text">{text}
+                                    <img onClick={handleEditClick} className="grocery__icon" src={icons} />
+                                </h1>
+                            </div>
+                        )}
                 </div>
-                ))}
+
+                    
+
+                <form className="grocery__form" onSubmit={handleAddItem}>
+                    <input className="grocery__input" type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}></input>
+                    <button className="grocery__button" type="submit">Add</button>
+                </form>
+
+                <div className="grocery__list">
+                    {items.map((item, index) => (
+                        <div key={index} className="grocery__list-item">
+                            <p>{item.name} : {item.aisle}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <button className="grocery__button">Save</button>
+
+
+                
             </div>
 
-            <button className="grocery__button">Save</button>
+           
         </>
     );
 
