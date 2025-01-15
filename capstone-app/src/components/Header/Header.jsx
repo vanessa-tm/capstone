@@ -9,7 +9,7 @@ function Header(){
         <div className="header">
             <img className="header__logo" src={logo} alt="logo image" />
             <div className="header__menu">
-                <Link to="/grocery-lists" className="header__link">
+                <Link to="/" className="header__link">
                     <p className="header__home">Home</p>
                 </Link>
                 

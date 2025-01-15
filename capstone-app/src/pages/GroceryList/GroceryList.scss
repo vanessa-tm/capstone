@@ -1,29 +1,46 @@
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/fonts" as *;
-
-.hero {
+.grocery {
     text-align: center;
     font-family: "Montserrat";
     padding-top: 3rem;
 
-    &__title {
-        font-weight: 500;
+    &__icon {
+        height: 1.5rem;
+        margin-left: 1rem;
     }
 
-    &__subtitle {
-        font-weight: 300;
+
+    &__form {
+        text-align: center;
     }
 
-    &__button-container {
-        text-align: end;
-        margin: 2rem;
+    &__input {
+        height: 2rem;
+        width: 15rem;
+        border-radius: 15px;
+
+
     }
 
     &__button {
-        border-radius: 25px;
-        padding: 1rem;
-        border: none;
-        
+        margin-left: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        color: #7e97d2;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #7e97d2;
+            color: white;
+        }
+
     }
 
+    &__list {
+        text-align: center;
+        background-color: #d9e5ff;
+        border: 1px solid;
+        border-radius: 15px;
+        margin: 2rem;
+
+    }
 }
