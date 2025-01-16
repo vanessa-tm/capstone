@@ -52,14 +52,32 @@ async function getAisleNumber(itemName) {
 
     if (inputValue.trim() !== "") {
       const aisle = await getAisleNumber(inputValue.trim()); // Search for the aisle number
-      setAisleNumber(aisle); // Set the aisle number state
-
       setItems([...items, { name: inputValue.trim(), aisle: aisle }]); // Add the new item with aisle number to the list
       setInputValue(""); // Clear input field
     }
-
     };
 
+    const handleFinalSave = async () => {
+        const dataToSave = {
+            list_name: text,
+            items: items.map((item) => ({
+                item_name: item.name,
+                aisle_number: item.aisle,
+            })),
+        };
+
+           try {
+        const response = await axios.post("http://localhost:8080/lists/", dataToSave);
+        console.log("list saved successfully", response.data);
+
+        
+    } catch (error) {
+        console.error("Error saving list", error);
+    }
+
+    }
+
+ 
 
    
     return (
@@ -101,7 +119,7 @@ async function getAisleNumber(itemName) {
                     ))}
                 </div>
 
-                <button className="grocery__button">Save</button>
+                <button onClick={handleFinalSave} className="grocery__button">Save</button>
 
 
                 
