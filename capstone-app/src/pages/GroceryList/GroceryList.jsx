@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import icons from "../../assets/icons/edit-button.png";
 import "./GroceryList.scss";
@@ -46,6 +47,7 @@ async function getAisleNumber(itemName) {
     const [items, setItems] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const [aisleNumber, setAisleNumber] = useState("");
+    const navigate = useNavigate();
 
     const handleAddItem = async (event) => {
     event.preventDefault();
@@ -70,7 +72,7 @@ async function getAisleNumber(itemName) {
         const response = await axios.post("http://localhost:8080/lists/", dataToSave);
         console.log("list saved successfully", response.data);
 
-        
+        navigate("/")
     } catch (error) {
         console.error("Error saving list", error);
     }
@@ -117,8 +119,9 @@ async function getAisleNumber(itemName) {
                             <p>{item.name} : {item.aisle}</p>
                         </div>
                     ))}
+                    {/* space filler */}
                     <br></br>
-                    <br></br>
+                    <br></br> 
                     <br></br>
                 </div>
 

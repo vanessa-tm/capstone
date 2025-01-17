@@ -24,9 +24,10 @@ function GroceryListView() {
 
     }, [id]);
 
-    if (!list) {
-    return <p>Loading...</p>;
-  }
+                if (!list) {
+                return <p>Loading...</p>;
+
+                }
 
   return (
     <>
@@ -38,9 +39,13 @@ function GroceryListView() {
                 
                 {list.items.map((item, index) => (
                 <div key={index} className="view-list__item">
-                    <p>{item.item_name} : {item.aisle_number}</p>
+                    <p> 
+                        {item.item_name} : {item.aisle_number}
+                    </p>
                 </div>
                  ))}
+            </div>
+            <div>      
             </div>
         </div>
     </>
