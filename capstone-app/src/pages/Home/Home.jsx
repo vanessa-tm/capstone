@@ -65,7 +65,7 @@ function Home () {
                             </Link>
                         </div>
                         <div className="list__image-container">
-                            <Link><img src={iconsEdit} className="list__image" /></Link>
+                            <Link to={`/grocery-lists/update/${list.id}`}><img src={iconsEdit} className="list__image" /></Link>
                             <img onClick={() => deleteList(list.id)} src={iconsDelete} className="list__image" />
                         </div>
                         

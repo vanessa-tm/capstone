@@ -110,7 +110,7 @@ async function getAisleNumber(itemName) {
 
                 <form className="grocery__form" onSubmit={handleAddItem}>
                     <input className="grocery__input" type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}></input>
-                    <button className="grocery__button" type="submit">Add</button>
+                    <button className="grocery__button" type="submit">Add Item</button>
                 </form>
 
                 <div className="grocery__list">
