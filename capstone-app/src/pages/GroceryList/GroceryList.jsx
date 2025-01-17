@@ -117,6 +117,9 @@ async function getAisleNumber(itemName) {
                             <p>{item.name} : {item.aisle}</p>
                         </div>
                     ))}
+                    <br></br>
+                    <br></br>
+                    <br></br>
                 </div>
 
                 <button onClick={handleFinalSave} className="grocery__button">Save</button>
@@ -124,7 +127,7 @@ async function getAisleNumber(itemName) {
 
                 
             </div>
-            
+
         </>
     );
 

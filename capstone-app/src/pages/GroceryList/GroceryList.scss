@@ -6,6 +6,11 @@
     &__icon {
         height: 1.5rem;
         margin-left: 1rem;
+
+        &:hover {
+            height: 2rem;
+            cursor: pointer;
+        }
     }
 
 
