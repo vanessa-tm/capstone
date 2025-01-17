@@ -124,8 +124,7 @@ async function getAisleNumber(itemName) {
 
                 
             </div>
-
-           
+            
         </>
     );
 

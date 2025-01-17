@@ -20,14 +20,25 @@ function Home () {
             } catch (error) {
                 console.error("Error getting lists", error);
             }
-                
         }
-
         getLists();
 
     }, []);
 
-   
+
+        async function deleteList(id) {
+            try {
+                const deleted = await axios.delete(`http://localhost:8080/lists/${id}`);
+
+                const updatedLists = await axios.get("http://localhost:8080/lists/")
+                setLists(updatedLists.data)
+
+            } catch (error) {
+                console.error("Error deleting list", error);
+            }
+            
+        }
+        
 
 
 
@@ -45,14 +56,19 @@ function Home () {
             </div>
             <div >
                   {lists.map ((list) => (
-                    <div key={list.id} className="list" >
+                    
+                    <div key={list.id} className="list">
+                        
                         <div  className="list__item-container">
+                            <Link to={`/grocery-lists/${list.id}`} className="list__link">
                             <h3 className="list__item" >{list.list_name}</h3>
+                            </Link>
                         </div>
                         <div className="list__image-container">
-                            <img src={iconsEdit} className="list__image" />
-                            <img src={iconsDelete} className="list__image" />
+                            <Link><img src={iconsEdit} className="list__image" /></Link>
+                            <img onClick={() => deleteList(list.id)} src={iconsDelete} className="list__image" />
                         </div>
+                        
                     </div>
                 ))} 
             </div>

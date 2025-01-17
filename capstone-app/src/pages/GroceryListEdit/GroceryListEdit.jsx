@@ -1,55 +1,23 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./GroceryListEdit.scss";
 
 function GroceryListEdit() {
-  const [isEditing, setIsEditing] = useState(false);
-  const [text, setText] = useState("Click edit to change this text!");
-
-  // Handle when the edit button is clicked
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
-
-  // Handle when the save button is clicked
-  const handleSaveClick = () => {
-    setIsEditing(false);
-  };
-
-  // Handle when the user types into the input
-  const handleChange = (e) => {
-    setText(e.target.value);
-  };
+  
+  
 
   return (
-    <div className="grocery-list-edit">
-      {isEditing ? (
-        <div className="edit-container">
-          <input
-            type="text"
-            value={text}
-            onChange={handleChange}
-            className="grocery-edit-input"
-            autoFocus
-          />
-          <button
-            onClick={handleSaveClick}
-            className="save-button"
-          >
-            Save
-          </button>
-        </div>
-      ) : (
-        <div className="view-container">
-          <span className="grocery-edit-text">{text}</span>
-          <button
-            onClick={handleEditClick}
-            className="edit-button"
-          >
-            Edit
-          </button>
-        </div>
-      )}
-    </div>
+    <>
+  
+        <p>
+            Lorem ipsum dolor sit amet consectetur, 
+            adipisicing elit. Provident officia quae pariatur 
+            ratione voluptas tempore fugiat nobis libero quibusdam 
+            onsequatur quia rerum, similique facere. 
+             Omnis, ducimus iusto. Architecto, ab et.
+        </p>
+
+    </>
   );
 }
 

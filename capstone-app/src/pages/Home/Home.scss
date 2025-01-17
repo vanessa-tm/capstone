@@ -36,29 +36,54 @@
 .list {
     display: flex;
     flex-direction: column;
-    border: solid 1px black;
+    border: solid 2px black;
     border-radius: 15px;
     margin: 2rem;
+    background-color: #e9f1ff;
+    
+    
 
     &__item-container {
         border-bottom: 1px solid black;
         padding: 0.5rem;
+
+         &:hover {
+                cursor: pointer;
+                font-size: large;
+         }
+        
     }
 
     &__item {
         text-align: center;
     }
 
+    &__link {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+                cursor: pointer;
+                font-size: large;
+            }
+       
+    }
+
     &__image-container{
         display: flex;
         justify-content: space-around;
-        padding: 0.5rem;
+        padding: 1rem;
         
 
     }
 
     &__image {
-        height: 2.5rem;
+        height: 2rem;
+
+        &:hover {
+            cursor: pointer;
+            height: 2.5rem;
+        }
         
     }
 
