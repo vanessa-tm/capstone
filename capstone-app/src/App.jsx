@@ -1,12 +1,11 @@
-import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import GroceryList from "./pages/GroceryList/GroceryList.jsx";
 import GroceryListView from "./pages/GroceryListView/GroceryListView.jsx";
 import GroceryListEdit from "./pages/GroceryListEdit/GroceryListEdit.jsx";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home.jsx";
 import StoreSetup from "./pages/StoreSetup/StoreSetup.jsx";
+import "./App.scss";
 
 function App() {
 

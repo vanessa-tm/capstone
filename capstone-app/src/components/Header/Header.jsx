@@ -1,7 +1,6 @@
-import "./Header.scss";
-import logo from "../../assets/logo/quicklist-high-resolution-logo.png";
 import { Link } from "react-router-dom";
-
+import logo from "../../assets/logo/quicklist-high-resolution-logo.png";
+import "./Header.scss";
 
 function Header(){
 

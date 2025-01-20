@@ -23,5 +23,9 @@
     &__link {
         text-decoration: none;
         color: white;
+
+        &:hover {
+            font-size: 1.25rem;
+        }
     }
 }

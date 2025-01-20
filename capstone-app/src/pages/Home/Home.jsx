@@ -1,9 +1,10 @@
 import axios from "axios";
-import "./Home.scss";
+import iconsDelete from "../../assets/icons/delete.png";
+import iconsEdit from "../../assets/icons/edit-button.png";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import iconsEdit from "../../assets/icons/edit-button.png";
-import iconsDelete from "../../assets/icons/delete.png";
+import "./Home.scss";
+
 
 function Home () {
 
@@ -55,13 +56,13 @@ function Home () {
                 </Link>
             </div>
             <div >
-                  {lists.map ((list) => (
+                {lists.map ((list) => (
                     
                     <div key={list.id} className="list">
                         
                         <div  className="list__item-container">
                             <Link to={`/grocery-lists/${list.id}`} className="list__link">
-                            <h3 className="list__item" >{list.list_name}</h3>
+                                <h3 className="list__item" >{list.list_name}</h3>
                             </Link>
                         </div>
                         <div className="list__image-container">

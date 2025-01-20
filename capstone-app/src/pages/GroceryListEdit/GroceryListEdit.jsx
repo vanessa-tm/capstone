@@ -1,37 +1,36 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./GroceryListEdit.scss"
 
 function GroceryListEdit () {
     const { id } = useParams();
     const navigate = useNavigate();
     
-    const [isEditing, setIsEditing] = useState(false);
     const [text, setText] = useState("");
     const [items, setItems] = useState([]);
     const [inputValue, setInputValue] = useState("");
     
 
-    // get list items based on ID
+    // get savednlist items based on ID
 
     useEffect(() => {
         async function getList() {
             try {
                 const response = await axios.get(`http://localhost:8080/lists/${id}`);
-                // console.log(response.data);
-                setText(response.data.list_name); // 
+                setText(response.data.list_name);
                 setItems(response.data.items);    
             } catch (error) {
                 console.error("Error fetching list data:", error);
             }
         }
         getList();
+        
     }, [id]);
 
  
 
-    // Handle when the user types into the item input
+    // Handle when the user types item into input
 
     const handleAddItem = async (event) => {
         event.preventDefault();
@@ -57,6 +56,9 @@ function GroceryListEdit () {
         }
     }
 
+
+    // handle when user does a final save 
+
     const handleSaveList = async () => {
         const dataToSave = {
             list_name: text,
@@ -65,6 +67,9 @@ function GroceryListEdit () {
                 aisle_number: item.aisle_number,
             })),
         };
+
+
+        // put request to update list 
 
         try {
             const response = await axios.put(`http://localhost:8080/lists/${id}/items`, dataToSave);
@@ -78,47 +83,27 @@ function GroceryListEdit () {
     return (
         <>
             <div className="grocery-update">
-            <div className="grocery__edit">
-                {isEditing ? (
-                    <div className="grocery__edit-container">
-                        <input
-                            type="text"
-                            value={text}
-                            onChange={handleChange}
-                            className="grocery__input"
-                            autoFocus
-                        />
-                        <button onClick={handleSaveClick} className="grocery__button">Save</button>
-                    </div>
-                ) : (
-                    <div className="grocery__view-container">
-                        <h1 className="grocery__edit-text">
-                            {text}
-                        </h1>
-                    </div>
-                )}
+                <h1 className="grocery-update__text">{text}</h1>
+
+                <form className="grocery-update__form" onSubmit={handleAddItem}>
+                    <input
+                        className="grocery-update__input"
+                        type="text"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                    />
+                    <button className="grocery-update__button" type="submit">Add Item</button>
+                </form>
+
+                <div className="grocery-update__list">
+                    {items.map((item, index) => (
+                        <div key={index} className="grocery-update__list-item">
+                            <p>{item.item_name} : {item.aisle_number}</p>
+                        </div>
+                    ))}
+                </div>
+                <button onClick={handleSaveList} className="grocery-update__button">Save</button>
             </div>
-
-            <form className="grocery__form" onSubmit={handleAddItem}>
-                <input
-                    className="grocery__input"
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                />
-                <button className="grocery__button" type="submit">Add Item</button>
-            </form>
-
-            <div className="grocery__list">
-                {items.map((item, index) => (
-                    <div key={index} className="grocery__list-item">
-                        <p>{item.item_name} : {item.aisle_number}</p>
-                    </div>
-                ))}
-            </div>
-
-            <button onClick={handleSaveList} className="grocery__button">Save Changes</button>
-        </div>
         </>
     );
 }

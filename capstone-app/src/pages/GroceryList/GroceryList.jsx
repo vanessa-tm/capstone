@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import icons from "../../assets/icons/edit-button.png";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./GroceryList.scss";
 
 
@@ -27,12 +27,14 @@ function GroceryList() {
 
 
 
+ //get request of all grocery items and find the item in the data based on the item_name
+
 async function getAisleNumber(itemName) {
         try {
             const response = await axios.get("http://localhost:8080/items");
             const data = response.data;
 
-            //find the item in the data based on the item_name
+           
             const item = data.find((item) => item.item_name.toLowerCase() === itemName.toLowerCase());
 
             return item ? item.aisle_number : "Item not found in the list.";
@@ -46,7 +48,6 @@ async function getAisleNumber(itemName) {
 
     const [items, setItems] = useState([]);
     const [inputValue, setInputValue] = useState("");
-    const [aisleNumber, setAisleNumber] = useState("");
     const navigate = useNavigate();
 
     const handleAddItem = async (event) => {
@@ -55,7 +56,7 @@ async function getAisleNumber(itemName) {
     if (inputValue.trim() !== "") {
       const aisle = await getAisleNumber(inputValue.trim()); // Search for the aisle number
       setItems([...items, { name: inputValue.trim(), aisle: aisle }]); // Add the new item with aisle number to the list
-      setInputValue(""); // Clear input field
+      setInputValue(""); 
     }
     };
 
@@ -80,12 +81,11 @@ async function getAisleNumber(itemName) {
     }
 
  
-
    
     return (
         <>
             <div className="grocery">
-             <div className="grocery__edit">
+                <div className="grocery__edit">
                     {isEditing ? (
                         <div className="grocery__edit-container">
                             <input
@@ -127,8 +127,6 @@ async function getAisleNumber(itemName) {
 
                 <button onClick={handleFinalSave} className="grocery__button">Save</button>
 
-
-                
             </div>
 
         </>
