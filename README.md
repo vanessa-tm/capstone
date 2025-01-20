@@ -165,24 +165,8 @@ GET /lists/:id
 
 
 
-PUT / grocerylist
 
-{
-  "list_name": "Weekend Camping Trip",
-  "items": 
-  [
-    {
-      "item_name": "Marshmallows",
-    },
-    {
-      "item_name": "Hot Dogs",
-    }
-  ]
-}
-
-
-
-PUT / grocerylist/:id
+PUT / lists/:id/items
 
 
 {
@@ -197,7 +181,7 @@ PUT / grocerylist/:id
 
 
 
-DELETE / grocerylist/:id
+DELETE / lists/:id
 
 
 
