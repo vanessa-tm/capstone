@@ -32,18 +32,21 @@ Device: Mobile phones for ease of use on-the-go.
 - Javascript
 - React
 - Express
+- Node.js
 - MySQL
 - Github
 
 ### APIs
 
-An external API will be created to manage information about grocery store items and their aisle locations.
+An external API was developed to manage information about grocery store items and their corresponding aisle locations, while another API was designed to handle user-specific saved lists.
 
 ### Sitemap
 
-Home Page - where user can find saved grocery lists.
-Grocery List Page - where user can add, edit and cross-off items pucked up.
-Store Setup Page - where user can find information on all the aisles and locations.
+- Home Page: Allows users to access their saved grocery lists.
+- Create Grocery List: Enables users to create a new grocery list by providing a list name and adding items.
+- Edit Grocery List: Lets users update a saved grocery list by adding additional items.
+- View Grocery List: Displays saved grocery lists organized by aisle, allowing users to mark items off as they are completed.
+- Store Setup Page: Provides detailed information about all aisles and their respective locations within the store.
 
 ### Mockups
 
@@ -57,24 +60,112 @@ https://www.figma.com/design/3tpe2vbCNtAoDmmBH0Df8A/Capstone-Project?node-id=0-1
 
 ### Endpoints
 
-GET / storeList example
+GET / items
 
-  {
-    "id": 123,
-    "aisleNumber": 1,
-    "aisleName": "Fruits and Vegetables",
-    "itemName": "Apple"
-  },
-  {
-    "id": 124,
-    "aisleNumber": 1,
-    "aisleName": "Fruits and Vegetables",
-    "itemName": "Potatoes"
-  }
+[
+    {
+        "id": 55,
+        "aisle_name": "water",
+        "aisle_number": "Aisle 1",
+        "item_name": "sparkling water"
+    },
+    {
+        "id": 56,
+        "aisle_name": "water",
+        "aisle_number": "Aisle 1",
+        "item_name": "coconut water"
+    },
+    {
+        "id": 57,
+        "aisle_name": "pop",
+        "aisle_number": "Aisle 1",
+        "item_name": "root beer"
+    }
+]
 
 
-GET / grocerylist
-POST / grocerylist
+
+GET / lists
+
+[
+    {
+        "id": 9,
+        "list_name": "Party Items",
+        "created_at": "2025-01-17T01:32:05.000Z",
+        "updated_at": "2025-01-17T01:32:05.000Z"
+    },
+    {
+        "id": 15,
+        "list_name": "Pasta Dinner",
+        "created_at": "2025-01-20T00:36:22.000Z",
+        "updated_at": "2025-01-20T00:36:22.000Z"
+    },
+    {
+        "id": 16,
+        "list_name": "Camping Trip",
+        "created_at": "2025-01-20T00:39:00.000Z",
+        "updated_at": "2025-01-20T00:39:00.000Z"
+    }
+]
+
+
+
+GET /lists/:id
+
+{
+    "id": 9,
+    "list_name": "Party Items",
+    "created_at": "2025-01-17T01:32:05.000Z",
+    "updated_at": "2025-01-17T01:32:05.000Z",
+    "items": [
+        {
+            "id": 20,
+            "list_id": 9,
+            "item_name": "Ginger Ale",
+            "aisle_number": "Aisle 1",
+            "checked": 1
+        },
+        {
+            "id": 21,
+            "list_id": 9,
+            "item_name": "Coconut Water",
+            "aisle_number": "Aisle 1",
+            "checked": 0
+        },
+        {
+            "id": 22,
+            "list_id": 9,
+            "item_name": "all-purpose cleaner",
+            "aisle_number": "Aisle 8",
+            "checked": 0
+        },
+        {
+            "id": 23,
+            "list_id": 9,
+            "item_name": "ice cream cake",
+            "aisle_number": "Aisle 14",
+            "checked": 0
+        },
+        {
+            "id": 24,
+            "list_id": 9,
+            "item_name": "gummy bears",
+            "aisle_number": "Aisle 1",
+            "checked": 0
+        },
+        {
+            "id": 38,
+            "list_id": 9,
+            "item_name": "mustard",
+            "aisle_number": "Aisle 5",
+            "checked": 0
+        }
+    ]
+}
+
+
+
+PUT / grocerylist
 
 {
   "list_name": "Weekend Camping Trip",
@@ -90,22 +181,20 @@ POST / grocerylist
 }
 
 
+
 PUT / grocerylist/:id
 
+
 {
-  "list_name": "Weekend Camping Trip",
   "items": [
     {
       "item_name": "Marshmallows",
-    },
-    {
-      "item_name": "Hot Dogs",
-    },
-{
-    “Item_name”: “Ketchup”,
-}
+      "aisle_number": "Aisle 1",
+      "checked": true
+    }
   ]
 }
+
 
 
 DELETE / grocerylist/:id
@@ -124,5 +213,5 @@ DELETE / grocerylist/:id
 ---
 
 ## Future Implementations
-- User Authentication: Add login functionality to allow users to save lists to their accounts.
-- Store-Specific Data: Enable users to select their store for tailored aisle layouts
+- User Authentication: Introduce login functionality, enabling users to securely save and access their grocery lists across devices.
+- Store-Specific Data: Allow users to select their preferred store, providing customized aisle layouts through partnerships with various grocery chains.
