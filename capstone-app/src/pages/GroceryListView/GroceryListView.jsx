@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./GroceryListView.scss";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function GroceryListView() {
   
     const {id} = useParams();
@@ -13,7 +15,7 @@ function GroceryListView() {
         async function getList() {
             try {
 
-                const response = await axios.get(`http://localhost:8080/lists/${id}`);
+                const response = await axios.get(`${API_URL}/lists/${id}`);
                 setList(response.data);
 
             } catch (error) {
@@ -44,7 +46,7 @@ function GroceryListView() {
     // Send the updated item in the required format
     try {
         const response = await axios.put(
-            `http://localhost:8080/lists/${id}/items`,
+            `${API_URL}/lists/${id}/items`,
             { items: [updatedItem] } // Send the updated item as part of an array
         );
         console.log('Check updated successfully:', response.data);

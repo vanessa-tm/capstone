@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./GroceryListEdit.scss"
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function GroceryListEdit () {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -12,12 +14,12 @@ function GroceryListEdit () {
     const [inputValue, setInputValue] = useState("");
     
 
-    // get savednlist items based on ID
+    // get saved list items based on ID
 
     useEffect(() => {
         async function getList() {
             try {
-                const response = await axios.get(`http://localhost:8080/lists/${id}`);
+                const response = await axios.get(`${API_URL}/lists/${id}`);
                 setText(response.data.list_name);
                 setItems(response.data.items);    
             } catch (error) {
@@ -44,7 +46,7 @@ function GroceryListEdit () {
 
     async function getAisleNumber(itemName) {
         try {
-            const response = await axios.get("http://localhost:8080/items");
+            const response = await axios.get(`${API_URL}/items`);
             const data = response.data;
 
             const item = data.find((item) => item.item_name.toLowerCase() === itemName.toLowerCase());
@@ -72,7 +74,7 @@ function GroceryListEdit () {
         // put request to update list 
 
         try {
-            const response = await axios.put(`http://localhost:8080/lists/${id}/items`, dataToSave);
+            const response = await axios.put(`${API_URL}/lists/${id}/items`, dataToSave);
             console.log("List updated successfully", response.data);
             navigate(`/grocery-lists/${id}`); 
         } catch (error) {

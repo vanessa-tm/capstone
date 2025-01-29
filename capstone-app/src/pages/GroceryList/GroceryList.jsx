@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./GroceryList.scss";
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 function GroceryList() {
 
@@ -31,7 +32,7 @@ function GroceryList() {
 
 async function getAisleNumber(itemName) {
         try {
-            const response = await axios.get("http://localhost:8080/items");
+            const response = await axios.get(`${API_URL}/items`);
             const data = response.data;
 
            
@@ -70,7 +71,7 @@ async function getAisleNumber(itemName) {
         };
 
            try {
-        const response = await axios.post("http://localhost:8080/lists/", dataToSave);
+        const response = await axios.post(`${API_URL}/lists/`, dataToSave);
         console.log("list saved successfully", response.data);
 
         navigate("/")

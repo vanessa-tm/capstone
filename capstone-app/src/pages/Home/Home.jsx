@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "./Home.scss";
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Home () {
 
@@ -15,7 +16,7 @@ function Home () {
         async function getLists() {
             try {
 
-                const response = await axios.get("http://localhost:8080/lists/");
+                const response = await axios.get(`${API_URL}/lists/`);
                 setLists(response.data);
 
             } catch (error) {
@@ -29,9 +30,9 @@ function Home () {
 
         async function deleteList(id) {
             try {
-                const deleted = await axios.delete(`http://localhost:8080/lists/${id}`);
+                const deleted = await axios.delete(`${API_URL}/lists/${id}`);
 
-                const updatedLists = await axios.get("http://localhost:8080/lists/")
+                const updatedLists = await axios.get(`${API_URL}/lists/`)
                 setLists(updatedLists.data)
 
             } catch (error) {
